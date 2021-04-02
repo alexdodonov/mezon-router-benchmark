@@ -505,4 +505,40 @@ class RouteGenerator
 
         return $router;
     }
+
+    /**
+     * Method generates static routes for the Pux router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Hoa\Router\Http
+     */
+    public static function generateHoaStaticRoutes(int $amount): \Hoa\Router\Http
+    {
+        $router = new \Hoa\Router\Http();
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $router->get('s' . $i, '/static/' . $i, '\Mezon\Benchmark\staticCallback');
+        }
+
+        return $router;
+    }
+
+    /**
+     * Method generates non-static routes for the Pux router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Hoa\Router\Http
+     */
+    public static function generateHoaNonStaticRoutes(int $amount): \Hoa\Router\Http
+    {
+        $router = new \Hoa\Router\Http();
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $router->get('p' . $i, '/param/' . $i . '/(?<id>\d+)', '\Mezon\Benchmark\paramCallback');
+        }
+
+        return $router;
+    }
 }

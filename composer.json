@@ -27,7 +27,9 @@
 		"nyholm/psr7": "^1.3",
 		"symfony/psr-http-message-bridge": "^2.0",
 		"laminas/laminas-psr7bridge": "^1.3",
-		"phpbench/phpbench": "^0.17"
+		"phpbench/phpbench": "^0.17",
+		"hoa/router": "~3.0",
+		"hoa/dispatcher": "^1.17"
     },
     "autoload": {
 		"psr-4": {
@@ -36,6 +38,11 @@
 		}
 	},
 	"scripts": {
-		"benchmark": "php vendor/phpbench/phpbench/bin/phpbench run Benchmarks/ --report=aggregate"
+		"benchmark": [
+			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter SingleRequestStatic",
+			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter SingleRequestParam",
+			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ReactStatic",
+			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ReactParam"
+		]
 	}
 }
