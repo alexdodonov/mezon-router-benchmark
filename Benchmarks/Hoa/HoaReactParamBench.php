@@ -3,8 +3,6 @@ namespace Mezon\Benchmarks\Hoa;
 
 use Mezon\Benchmark\RouteGenerator;
 
-/**
- */
 class HoaReactParamBench
 {
 

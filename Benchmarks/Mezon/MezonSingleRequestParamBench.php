@@ -37,37 +37,38 @@ class MezonSingleRequestParamBench
      */
     public function benchParam(): void
     {
-        $this->paramRoutes->loadFromDisk('./cache/cache.param.php');
+        // $this->paramRoutes->loadFromDisk('./cache/cache.param.php');
+        $this->paramRoutes = \Mezon\Benchmark\RouteGenerator::generateMezonNonStaticRoutes(1000);
         $this->paramRoutes->callRoute('/param/0/1');
 
-        $this->paramRoutes->loadFromDisk('./cache/cache.param.php');
+        $this->paramRoutes = \Mezon\Benchmark\RouteGenerator::generateMezonNonStaticRoutes(1000);
         $this->paramRoutes->callRoute('/param/99/1');
 
-        $this->paramRoutes->loadFromDisk('./cache/cache.param.php');
+        $this->paramRoutes = \Mezon\Benchmark\RouteGenerator::generateMezonNonStaticRoutes(1000);
         $this->paramRoutes->callRoute('/param/199/1');
 
-        $this->paramRoutes->loadFromDisk('./cache/cache.param.php');
+        $this->paramRoutes = \Mezon\Benchmark\RouteGenerator::generateMezonNonStaticRoutes(1000);
         $this->paramRoutes->callRoute('/param/299/1');
 
-        $this->paramRoutes->loadFromDisk('./cache/cache.param.php');
+        $this->paramRoutes = \Mezon\Benchmark\RouteGenerator::generateMezonNonStaticRoutes(1000);
         $this->paramRoutes->callRoute('/param/399/1');
 
-        $this->paramRoutes->loadFromDisk('./cache/cache.param.php');
+        $this->paramRoutes = \Mezon\Benchmark\RouteGenerator::generateMezonNonStaticRoutes(1000);
         $this->paramRoutes->callRoute('/param/499/1');
 
-        $this->paramRoutes->loadFromDisk('./cache/cache.param.php');
+        $this->paramRoutes = \Mezon\Benchmark\RouteGenerator::generateMezonNonStaticRoutes(1000);
         $this->paramRoutes->callRoute('/param/599/1');
 
-        $this->paramRoutes->loadFromDisk('./cache/cache.param.php');
+        $this->paramRoutes = \Mezon\Benchmark\RouteGenerator::generateMezonNonStaticRoutes(1000);
         $this->paramRoutes->callRoute('/param/699/1');
 
-        $this->paramRoutes->loadFromDisk('./cache/cache.param.php');
+        $this->paramRoutes = \Mezon\Benchmark\RouteGenerator::generateMezonNonStaticRoutes(1000);
         $this->paramRoutes->callRoute('/param/799/1');
 
-        $this->paramRoutes->loadFromDisk('./cache/cache.param.php');
+        $this->paramRoutes = \Mezon\Benchmark\RouteGenerator::generateMezonNonStaticRoutes(1000);
         $this->paramRoutes->callRoute('/param/899/1');
 
-        $this->paramRoutes->loadFromDisk('./cache/cache.param.php');
+        $this->paramRoutes = \Mezon\Benchmark\RouteGenerator::generateMezonNonStaticRoutes(1000);
         $this->paramRoutes->callRoute('/param/999/1');
     }
 }

@@ -2,7 +2,8 @@
 	"bootstrap": "vendor/autoload.php",
 	"php_disable_ini": true,
     "php_config": {
-        "extension": [ "json.so" ]
+        "extension": [ "json.so" ],
+        "memory_limit": "512M"
     },
     "output_mode": "throughput",
     "outputs": {

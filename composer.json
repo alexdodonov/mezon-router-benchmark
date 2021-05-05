@@ -1,5 +1,6 @@
 {
-	"minimum-stability": "stable",
+	"prefer-stable": true,
+	"minimum-stability": "dev",
     "require": {
         "mezon/router": "^1.2",
         "klein/klein": "^2.1",
@@ -29,7 +30,8 @@
 		"laminas/laminas-psr7bridge": "^1.3",
 		"phpbench/phpbench": "^0.17",
 		"hoa/router": "~3.0",
-		"hoa/dispatcher": "^1.17"
+		"hoa/dispatcher": "^1.17",
+		"dannyvankooten/php-router": "9999999-dev"
     },
     "autoload": {
 		"psr-4": {
@@ -43,6 +45,7 @@
 			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter SingleRequestParam",
 			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ReactStatic",
 			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ReactParam"
-		]
+		],
+		"debug": "php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter DVKSingleRequestParamBench"
 	}
 }

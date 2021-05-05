@@ -541,4 +541,62 @@ class RouteGenerator
 
         return $router;
     }
+
+    /**
+     * Some controller method
+     */
+    public function staticController(): string
+    {
+        return 'static';
+    }
+
+    /**
+     * Some controller method
+     */
+    public function paramController(): string
+    {
+        return 'param';
+    }
+
+    /**
+     * Method generates static routes for the Pux router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \PHPRouter\Router
+     */
+    public static function generateDVKStaticRoutes(int $amount): \PHPRouter\Router
+    {
+        $collection = new \PHPRouter\RouteCollection();
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $collection->attachRoute(new \PHPRouter\Route('/static/' . $i, [
+                '_controller' => '\Mezon\Benchmark\RouteGenerator::staticController',
+                'methods' => 'GET'
+            ]));
+        }
+
+        return new \PHPRouter\Router($collection);
+    }
+
+    /**
+     * Method generates non-static routes for the Pux router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \PHPRouter\Router
+     */
+    public static function generateDVKNonStaticRoutes(int $amount): \PHPRouter\Router
+    {
+        $collection = new \PHPRouter\RouteCollection();
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $collection->attachRoute(new \PHPRouter\Route('/param/' . $i . '/:id/', [
+                '_controller' => '\Mezon\Benchmark\RouteGenerator::paramController',
+                'methods' => 'GET'
+            ]));
+        }
+
+        return new \PHPRouter\Router($collection);
+    }
 }

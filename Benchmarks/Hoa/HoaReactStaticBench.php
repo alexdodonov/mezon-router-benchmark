@@ -1,11 +1,8 @@
 <?php
 namespace Mezon\Benchmarks\Hoa;
 
-use Mezon\Router\Router;
 use Mezon\Benchmark\RouteGenerator;
 
-/**
- */
 class HoaReactStaticBench
 {
 
