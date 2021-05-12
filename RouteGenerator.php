@@ -8,6 +8,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
 use Klein\Klein;
 use Pux;
+use Pecee\SimpleRouter\Route\RouteUrl;
 
 function staticCallback(): string
 {
@@ -598,5 +599,50 @@ class RouteGenerator
         }
 
         return new \PHPRouter\Router($collection);
+    }
+
+    /**
+     * Method generates static routes for the Pecee router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Pecee\SimpleRouter\Router
+     */
+    public static function generatePeceeStaticRoutes(int $amount): \Pecee\SimpleRouter\Router
+    {
+        $router = new \Pecee\SimpleRouter\Router();
+        $router->reset();
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $route = new RouteUrl('/static/' . $i, '\Mezon\Benchmark\RouteGenerator::staticController');
+            $route->setRequestMethods([
+                \Pecee\Http\Request::REQUEST_TYPE_GET
+            ]);
+            $router->addRoute($route);
+        }
+
+        return $router;
+    }
+
+    /**
+     * Method generates non-static routes for the Pecee router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Pecee\SimpleRouter\Router
+     */
+    public static function generatePeceeNonStaticRoutes(int $amount): \Pecee\SimpleRouter\Router
+    {
+        $router = new \Pecee\SimpleRouter\Router();
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $route = new RouteUrl('/param/' . $i . '/{id}/', '\Mezon\Benchmark\RouteGenerator::paramController');
+            $route->setRequestMethods([
+                \Pecee\Http\Request::REQUEST_TYPE_GET
+            ]);
+            $router->addRoute($route);
+        }
+
+        return $router;
     }
 }
