@@ -32,7 +32,10 @@
 		"hoa/router": "~3.0",
 		"hoa/dispatcher": "^1.17",
 		"dannyvankooten/php-router": "9999999-dev",
-		"pecee/simple-router": "^4.3"
+		"pecee/simple-router": "^4.3",
+		"coffeecode/router": "^1.0",
+		"steampixel/simple-php-router": "^0.7.0",
+		"izniburak/router": "^2.3"
     },
     "autoload": {
 		"psr-4": {
@@ -47,6 +50,6 @@
 			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ReactStatic",
 			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ReactParam"
 		],
-		"debug": "php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter DVKSingleRequestParamBench"
+		"debug": "php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter IB"
 	}
 }

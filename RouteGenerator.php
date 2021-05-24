@@ -36,6 +36,11 @@ function callbackPsr7Response(): \Laminas\Diactoros\Response
 class RouteGenerator
 {
 
+    function callbackSymfony(\Symfony\Component\HttpFoundation\Request $request, \Symfony\Component\HttpFoundation\Response $response)
+    {
+        return $response;
+    }
+
     /**
      * Method generates static routes for the Symfony router
      *
@@ -641,6 +646,114 @@ class RouteGenerator
                 \Pecee\Http\Request::REQUEST_TYPE_GET
             ]);
             $router->addRoute($route);
+        }
+
+        return $router;
+    }
+
+    /**
+     * Method generates static routes for the Coffee router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \CoffeeCode\Router\Router
+     */
+    public static function generateCoffeeStaticRoutes(int $amount): \CoffeeCode\Router\Router
+    {
+        $router = new \CoffeeCode\Router\Router('http://localhost');
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $router->get('/static/' . $i, '\Mezon\Benchmark\RouteGenerator::staticController');
+        }
+
+        return $router;
+    }
+
+    /**
+     * Method generates non-static routes for the Coffee router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \CoffeeCode\Router\Router
+     */
+    public static function generateCoffeeNonStaticRoutes(int $amount): \CoffeeCode\Router\Router
+    {
+        $router = new \CoffeeCode\Router\Router('http://localhost');
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $router->get('/param/' . $i . '/{id}/', '\Mezon\Benchmark\RouteGenerator::paramController');
+        }
+
+        return $router;
+    }
+
+    /**
+     * Method generates static routes for the Steampixel router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     */
+    public static function generateSteampixelStaticRoutes(int $amount): void
+    {
+        \Steampixel\Route::$routes = [];
+
+        for ($i = 0; $i < $amount; $i ++) {
+            \Steampixel\Route::add('/static/' . $i, '\Mezon\Benchmark\RouteGenerator::staticController');
+        }
+    }
+
+    /**
+     * Method generates non-static routes for the Steampixel router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     */
+    public static function generateSteampixelNonStaticRoutes(int $amount): void
+    {
+        \Steampixel\Route::$routes = [];
+
+        for ($i = 0; $i < $amount; $i ++) {
+            \Steampixel\Route::add('/param/' . $i . '/([0-9]*)/', '\Mezon\Benchmark\RouteGenerator::paramController');
+        }
+    }
+
+    /**
+     * Method generates static routes for the Steampixel router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Buki\Router\Router router
+     */
+    public static function generateIzniburakStaticRoutes(int $amount): \Buki\Router\Router
+    {
+        $router = new \Buki\Router\Router();
+        $closure = function ($request = null, $response = null) {
+            return $response;
+        };
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $router->get('/static/' . $i, $closure);
+        }
+
+        return $router;
+    }
+
+    /**
+     * Method generates non-static routes for the Steampixel router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Buki\Router\Router router
+     */
+    public static function generateIzniburakNonStaticRoutes(int $amount): \Buki\Router\Router
+    {
+        $router = new \Buki\Router\Router();
+        $closure = function ($request = null, $response = null) {
+            return $response;
+        };
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $router->get('/param/' . $i . '/:id/', $closure);
         }
 
         return $router;
