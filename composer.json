@@ -50,6 +50,6 @@
 			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ReactStatic",
 			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ReactParam"
 		],
-		"debug": "php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter IB"
+		"debug": "php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter IBR"
 	}
 }
