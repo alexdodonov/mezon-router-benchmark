@@ -9,6 +9,19 @@ use Slim\Factory\AppFactory;
 use Klein\Klein;
 use Pux;
 use Pecee\SimpleRouter\Route\RouteUrl;
+use MiladRahimi\PhpContainer\Container;
+use Psr\Container\ContainerInterface;
+use MiladRahimi\PhpRouter\Routing\Repository;
+use MiladRahimi\PhpRouter\Publisher\Publisher;
+
+class EmptyPublisher implements Publisher
+{
+
+    public function publish($response): void
+    {
+        // do nothing
+    }
+}
 
 function staticCallback(): string
 {
@@ -754,6 +767,62 @@ class RouteGenerator
 
         for ($i = 0; $i < $amount; $i ++) {
             $router->get('/param/' . $i . '/:id/', $closure);
+        }
+
+        return $router;
+    }
+
+    /**
+     * Method generates static routes for the Steampixel router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \MiladRahimi\PhpRouter\Router
+     */
+    public static function generateMiladRahimiStaticRoutes(int $amount): \MiladRahimi\PhpRouter\Router
+    {
+        $container = new Container();
+        $container->singleton(Container::class, $container);
+        $container->singleton(ContainerInterface::class, $container);
+        $container->singleton(Repository::class, new Repository());
+        $container->singleton(Publisher::class, EmptyPublisher::class);
+
+        $router = $container->instantiate(\MiladRahimi\PhpRouter\Router::class);
+
+        $closure = function () {
+            return 'static';
+        };
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $router->get('/static/' . $i, $closure);
+        }
+
+        return $router;
+    }
+
+    /**
+     * Method generates non-static routes for the Steampixel router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \MiladRahimi\PhpRouter\Router router
+     */
+    public static function generateMiladRahimiNonStaticRoutes(int $amount): \MiladRahimi\PhpRouter\Router
+    {
+        $container = new Container();
+        $container->singleton(Container::class, $container);
+        $container->singleton(ContainerInterface::class, $container);
+        $container->singleton(Repository::class, new Repository());
+        $container->singleton(Publisher::class, EmptyPublisher::class);
+
+        $router = $container->instantiate(\MiladRahimi\PhpRouter\Router::class);
+
+        $closure = function (): string {
+            return 'param';
+        };
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $router->get('/param/' . $i . '/{id}/', $closure);
         }
 
         return $router;

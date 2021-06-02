@@ -35,7 +35,8 @@
 		"pecee/simple-router": "^4.3",
 		"coffeecode/router": "^1.0",
 		"steampixel/simple-php-router": "^0.7.0",
-		"izniburak/router": "^2.3"
+		"izniburak/router": "^2.3",
+		"miladrahimi/phprouter": "^5.1"
     },
     "autoload": {
 		"psr-4": {
@@ -50,6 +51,6 @@
 			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ReactStatic",
 			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ReactParam"
 		],
-		"debug": "php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter IBR"
+		"debug": "php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter MiladReactStaticBench"
 	}
 }
