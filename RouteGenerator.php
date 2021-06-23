@@ -13,6 +13,20 @@ use MiladRahimi\PhpContainer\Container;
 use Psr\Container\ContainerInterface;
 use MiladRahimi\PhpRouter\Routing\Repository;
 use MiladRahimi\PhpRouter\Publisher\Publisher;
+use Mcustiel\PowerRoute\Common\Factories\MatcherFactory;
+use Mcustiel\Creature\SingletonLazyCreator;
+use Mcustiel\PowerRoute\Matchers\NotNull;
+use Mcustiel\PowerRoute\Matchers\Equals;
+use Mcustiel\PowerRoute\Common\Factories\InputSourceFactory;
+use Mcustiel\PowerRoute\InputSources\QueryStringParam;
+use Mcustiel\PowerRoute\Common\Factories\ActionFactory;
+use Mcustiel\PowerRoute\Actions\Redirect;
+use Mcustiel\PowerRoute\PowerRoute;
+use Mcustiel\PowerRoute\Common\Conditions\ConditionsMatcherFactory;
+use Mcustiel\PowerRoute\Matchers\RegExp;
+use Mcustiel\PowerRoute\InputSources\Url;
+use Mcustiel\PowerRoute\Actions\ActionInterface;
+use Mcustiel\PowerRoute\Common\TransactionData;
 
 class EmptyPublisher implements Publisher
 {
@@ -41,6 +55,33 @@ function callbackPsr7(Request $request, Response $response): Response
 function callbackPsr7Response(): \Laminas\Diactoros\Response
 {
     return new \Laminas\Diactoros\Response();
+}
+
+class StaticAction implements ActionInterface
+{
+
+    public function execute(TransactionData $transactionData, $argument = null)
+    {
+        $transactionData->setResponse('static');
+    }
+}
+
+class NonStaticAction implements ActionInterface
+{
+
+    public function execute(TransactionData $transactionData, $argument = null)
+    {
+        $transactionData->setResponse('param');
+    }
+}
+
+class ToroHandler
+{
+
+    public function get(): string
+    {
+        return 'param';
+    }
 }
 
 /**
@@ -826,5 +867,155 @@ class RouteGenerator
         }
 
         return $router;
+    }
+
+    /**
+     * Method generates static routes for the router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Mcustiel\PowerRoute\PowerRoute
+     */
+    public static function generatePowerStaticRoutes(int $amount): \Mcustiel\PowerRoute\PowerRoute
+    {
+        $matcherFactory = new MatcherFactory([
+            'regExp' => new SingletonLazyCreator(RegExp::class),
+            'equals' => new SingletonLazyCreator(Equals::class)
+        ]);
+        $inputSourceFactory = new InputSourceFactory([
+            'get' => new SingletonLazyCreator(Url::class)
+        ]);
+        $actionFactory = new ActionFactory([
+            'static' => new SingletonLazyCreator(StaticAction::class)
+        ]);
+
+        $config = [
+            'start' => 'urls',
+            'nodes' => [
+                'urls' => [
+                    'condition' => [
+                        'one-of' => []
+                    ],
+                    'actions' => [
+                        'if-matches' => [
+                            [
+                                'static' => null
+                            ]
+                        ],
+                        'else' => [
+                            [
+                                'notFound' => null
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ];
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $config['nodes']['urls']['condition']['one-of'][] = [
+                'input-source' => [
+                    'get' => 'path'
+                ],
+                'matcher' => [
+                    'equals' => '/static/' . $i
+                ]
+            ];
+        }
+
+        return new PowerRoute($config, $actionFactory, new ConditionsMatcherFactory($inputSourceFactory, $matcherFactory));
+    }
+
+    /**
+     * Method generates static routes for the router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Mcustiel\PowerRoute\PowerRoute
+     */
+    public static function generatePowerNonStaticRoutes(int $amount): \Mcustiel\PowerRoute\PowerRoute
+    {
+        $matcherFactory = new MatcherFactory([
+            'regExp' => new SingletonLazyCreator(RegExp::class),
+            'equals' => new SingletonLazyCreator(Equals::class)
+        ]);
+        $inputSourceFactory = new InputSourceFactory([
+            'get' => new SingletonLazyCreator(Url::class)
+        ]);
+        $actionFactory = new ActionFactory([
+            'static' => new SingletonLazyCreator(StaticAction::class)
+        ]);
+
+        $config = [
+            'start' => 'urls',
+            'nodes' => [
+                'urls' => [
+                    'condition' => [
+                        'one-of' => []
+                    ],
+                    'actions' => [
+                        'if-matches' => [
+                            [
+                                'static' => null
+                            ]
+                        ],
+                        'else' => [
+                            [
+                                'notFound' => null
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ];
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $config['nodes']['urls']['condition']['one-of'][] = [
+                'input-source' => [
+                    'get' => 'path'
+                ],
+                'matcher' => [
+                    'equals' => '/param/' . $i . '/1/'
+                ]
+            ];
+        }
+
+        return new PowerRoute($config, $actionFactory, new ConditionsMatcherFactory($inputSourceFactory, $matcherFactory));
+    }
+
+    /**
+     * Method generates static routes for the ToroPHP router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return array routes
+     */
+    public static function generateToroStaticRoutes(int $amount): array
+    {
+        $routes = [];
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $routes['/static/' . $i] = ToroHandler::class;
+        }
+
+        return $routes;
+    }
+
+    /**
+     * Method generates non-static routes for the ToroPHP router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return array routes
+     */
+    public static function generateToroNonStaticRoutes(int $amount): array
+    {
+        $routes = [];
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $routes['/param/' . $i . '/:number/'] = ToroHandler::class;
+        }
+
+        return $routes;
     }
 }

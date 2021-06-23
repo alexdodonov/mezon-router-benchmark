@@ -36,7 +36,9 @@
 		"coffeecode/router": "^1.0",
 		"steampixel/simple-php-router": "^0.7.0",
 		"izniburak/router": "^2.3",
-		"miladrahimi/phprouter": "^5.1"
+		"miladrahimi/phprouter": "^5.1",
+		"mcustiel/power-route": "^3.0",
+		"torophp/torophp": "9999999-dev"
     },
     "autoload": {
 		"psr-4": {
@@ -51,6 +53,6 @@
 			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ReactStatic",
 			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ReactParam"
 		],
-		"debug": "php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter MiladReactStaticBench"
+		"debug": "php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ToroReactParamBench"
 	}
 }
