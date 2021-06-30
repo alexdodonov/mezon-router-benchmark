@@ -75,7 +75,7 @@ class NonStaticAction implements ActionInterface
     }
 }
 
-class ToroHandler
+class RouteHandler
 {
 
     public function get(): string
@@ -995,7 +995,7 @@ class RouteGenerator
         $routes = [];
 
         for ($i = 0; $i < $amount; $i ++) {
-            $routes['/static/' . $i] = ToroHandler::class;
+            $routes['/static/' . $i] = RouteHandler::class;
         }
 
         return $routes;
@@ -1013,9 +1013,57 @@ class RouteGenerator
         $routes = [];
 
         for ($i = 0; $i < $amount; $i ++) {
-            $routes['/param/' . $i . '/:number/'] = ToroHandler::class;
+            $routes['/param/' . $i . '/:number/'] = RouteHandler::class;
         }
 
         return $routes;
+    }
+
+    /**
+     * Method generates static routes for the ToroPHP router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Zaphpa\Router router
+     */
+    public static function generateZaphpaStaticRoutes(int $amount): \Zaphpa\Router
+    {
+        $router = new \Zaphpa\Router();
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $router->addRoute([
+                'path' => '/static/' . $i,
+                'get' => [
+                    RouteHandler::class,
+                    'get'
+                ]
+            ]);
+        }
+
+        return $router;
+    }
+
+    /**
+     * Method generates non-static routes for the ToroPHP router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Zaphpa\Router routes
+     */
+    public static function generateZaphpaNonStaticRoutes(int $amount): \Zaphpa\Router
+    {
+        $router = new \Zaphpa\Router();
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $router->addRoute([
+                'path' => '/param/' . $i . '/{id}/',
+                'get' => [
+                    RouteHandler::class,
+                    'get'
+                ]
+            ]);
+        }
+
+        return $router;
     }
 }
