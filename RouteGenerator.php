@@ -27,6 +27,9 @@ use Mcustiel\PowerRoute\Matchers\RegExp;
 use Mcustiel\PowerRoute\InputSources\Url;
 use Mcustiel\PowerRoute\Actions\ActionInterface;
 use Mcustiel\PowerRoute\Common\TransactionData;
+use Joomla\Application\AbstractApplication;
+use Joomla\Controller\ControllerInterface;
+use Joomla\Input\Input;
 
 class EmptyPublisher implements Publisher
 {
@@ -82,6 +85,37 @@ class RouteHandler
     {
         return 'param';
     }
+}
+
+class JiraRouteHandler implements ControllerInterface
+{
+    
+    public function get(): string
+    {
+        return 'param';
+    }
+
+    public function getApplication()
+    {}
+
+    public function setApplication(AbstractApplication $app)
+    {}
+
+    public function serialize()
+    {}
+
+    public function unserialize($serialized)
+    {}
+
+    public function getInput()
+    {}
+
+    public function execute()
+    {}
+
+    public function setInput(Input $input)
+    {}
+
 }
 
 /**
@@ -1020,7 +1054,7 @@ class RouteGenerator
     }
 
     /**
-     * Method generates static routes for the ToroPHP router
+     * Method generates static routes for the Zaphpa router
      *
      * @param int $amount
      *            amount of routes to be generated
@@ -1044,7 +1078,7 @@ class RouteGenerator
     }
 
     /**
-     * Method generates non-static routes for the ToroPHP router
+     * Method generates non-static routes for the Zaphpa router
      *
      * @param int $amount
      *            amount of routes to be generated
@@ -1062,6 +1096,42 @@ class RouteGenerator
                     'get'
                 ]
             ]);
+        }
+
+        return $router;
+    }
+
+    /**
+     * Method generates static routes for the Joomla router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Joomla\Router\Router router
+     */
+    public static function generateJoomlaStaticRoutes(int $amount): \Joomla\Router\Router
+    {
+        $router = new \Joomla\Router\Router();
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $router->addMap('/static/' . $i, JiraRouteHandler::class);
+        }
+
+        return $router;
+    }
+
+    /**
+     * Method generates non-static routes for the Joomla router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Joomla\Router\Router routes
+     */
+    public static function generateJoomlaNonStaticRoutes(int $amount): \Joomla\Router\Router
+    {
+        $router = new \Joomla\Router\Router();
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $router->addMap('/param/' . $i . '/:id/', JiraRouteHandler::class);
         }
 
         return $router;

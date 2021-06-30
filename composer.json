@@ -39,7 +39,9 @@
 		"miladrahimi/phprouter": "^5.1",
 		"mcustiel/power-route": "^3.0",
 		"torophp/torophp": "9999999-dev",
-		"zaphpa/zaphpa": "^2.1"
+		"zaphpa/zaphpa": "^2.1",
+		"spryker/router": "^1.11",
+		"joomla/router": "^1.2"
     },
     "autoload": {
 		"psr-4": {
@@ -54,6 +56,6 @@
 			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ReactStatic",
 			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ReactParam"
 		],
-		"debug": "php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ZaphpaReactParamBench"
+		"debug": "php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter Joomla"
 	}
 }
