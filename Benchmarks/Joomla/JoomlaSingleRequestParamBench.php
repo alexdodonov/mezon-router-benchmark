@@ -3,7 +3,7 @@ namespace Mezon\Benchmarks\Joomla;
 
 use Mezon\Benchmark\RouteGenerator;
 
-class JoomlaSingleRequestNonStaticBench
+class JoomlaSingleRequestParamBench
 {
 
     /**
