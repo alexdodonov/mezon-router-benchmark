@@ -89,7 +89,7 @@ class RouteHandler
 
 class JiraRouteHandler implements ControllerInterface
 {
-    
+
     public function get(): string
     {
         return 'param';
@@ -115,7 +115,6 @@ class JiraRouteHandler implements ControllerInterface
 
     public function setInput(Input $input)
     {}
-
 }
 
 /**
@@ -1135,5 +1134,52 @@ class RouteGenerator
         }
 
         return $router;
+    }
+
+    /**
+     * Method generates static routes for the Joomla router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Teto\Routing\Router router
+     */
+    public static function generateTetoStaticRoutes(int $amount): \Teto\Routing\Router
+    {
+        $routingMap = [];
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $routingMap[] = [
+                'GET',
+                '/static/' . $i,
+                '/static/' . $i
+            ];
+        }
+
+        return new \Teto\Routing\Router($routingMap);
+    }
+
+    /**
+     * Method generates non-static routes for the Joomla router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Teto\Routing\Router routes
+     */
+    public static function generateTetoNonStaticRoutes(int $amount): \Teto\Routing\Router
+    {
+        $routingMap = [];
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $routingMap[] = [
+                'GET',
+                '/param/' . $i . '/:id/',
+                '/param/' . $i . '/:id/',
+                [
+                    'id' => '/\A(\d+)\z/'
+                ]
+            ];
+        }
+
+        return new \Teto\Routing\Router($routingMap);
     }
 }
