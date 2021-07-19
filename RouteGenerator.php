@@ -1137,7 +1137,7 @@ class RouteGenerator
     }
 
     /**
-     * Method generates static routes for the Joomla router
+     * Method generates static routes for the Teto router
      *
      * @param int $amount
      *            amount of routes to be generated
@@ -1159,7 +1159,7 @@ class RouteGenerator
     }
 
     /**
-     * Method generates non-static routes for the Joomla router
+     * Method generates non-static routes for the Teto router
      *
      * @param int $amount
      *            amount of routes to be generated
@@ -1181,5 +1181,41 @@ class RouteGenerator
         }
 
         return new \Teto\Routing\Router($routingMap);
+    }
+
+    /**
+     * Method generates static routes for the Leaf router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Leaf\App router
+     */
+    public static function generateLeafStaticRoutes(int $amount): \Leaf\App
+    {
+        $app = new \Leaf\App();
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $app->get('/static/' . $i, '\Mezon\Benchmark\staticCallback');
+        }
+
+        return $app;
+    }
+
+    /**
+     * Method generates non-static routes for the Teto router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Leaf\App routes
+     */
+    public static function generateLeafNonStaticRoutes(int $amount): \Leaf\App
+    {
+        $app = new \Leaf\App();
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $app->get('/param/' . $i . '/{id}/', '\Mezon\Benchmark\paramCallback');
+        }
+
+        return $app;
     }
 }
