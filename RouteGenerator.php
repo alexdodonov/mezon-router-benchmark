@@ -30,6 +30,7 @@ use Mcustiel\PowerRoute\Common\TransactionData;
 use Joomla\Application\AbstractApplication;
 use Joomla\Controller\ControllerInterface;
 use Joomla\Input\Input;
+use NoahBuscher\Macaw\Macaw;
 
 class EmptyPublisher implements Publisher
 {
@@ -1202,7 +1203,7 @@ class RouteGenerator
     }
 
     /**
-     * Method generates non-static routes for the Teto router
+     * Method generates non-static routes for the Leaf router
      *
      * @param int $amount
      *            amount of routes to be generated
@@ -1217,5 +1218,49 @@ class RouteGenerator
         }
 
         return $app;
+    }
+
+    /**
+     * Method generates static routes for the Macaw router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     */
+    public static function generateMacawStaticRoutes(int $amount): void
+    {
+        Macaw::$maps = [];
+        Macaw::$routes = [];
+        Macaw::$methods = [];
+        Macaw::$callbacks = [];
+
+        $closure = function (): string {
+            return 'static';
+        };
+
+        for ($i = 0; $i < $amount; $i ++) {
+            Macaw::get('/static/' . $i, $closure);
+        }
+    }
+
+    /**
+     * Method generates non-static routes for the Macaw router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     */
+    public static function generateMacawNonStaticRoutes(int $amount): void
+    {
+        Macaw::$maps = [];
+        Macaw::$routes = [];
+        Macaw::$methods = [];
+        Macaw::$callbacks = [];
+
+        $closure = function (): string {
+            return 'param';
+        };
+
+        for ($i = 0; $i < $amount; $i ++) {
+            Macaw::get('/param/' . $i . '/(:num)', $closure);
+        }
     }
 }
