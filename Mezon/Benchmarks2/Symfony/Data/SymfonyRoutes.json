@@ -1,0 +1,1481 @@
+[
+	{
+		"route": "languages/{locale}/back",
+		"params": {
+			"locale": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "offline-payments/settings"
+	},
+	{
+		"route": "offline-payments/settings/get"
+	},
+	{
+		"route": "offline-payments/settings/delete"
+	},
+	{
+		"route": "portal/invoices/{invoice}/offline-payments",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "portal/invoices/{invoice}/offline-payments/confirm",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "signed/invoices/{invoice}/offline-payments",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "signed/invoices/{invoice}/offline-payments/confirm",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "portal/invoices/{invoice}/paypal-standard/return",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "portal/invoices/{invoice}/paypal-standard/complete",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "portal/invoices/{invoice}/paypal-standard",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "signed/invoices/{invoice}/paypal-standard",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "livewire/livewire.js"
+	},
+	{
+		"route": "livewire/livewire.js.map"
+	},
+	{
+		"route": "livewire/message/{name}",
+		"params": {
+			"name": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "livewire/upload-file"
+	},
+	{
+		"route": "livewire/preview-file/{filename}",
+		"params": {
+			"filename": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "install"
+	},
+	{
+		"route": "install/requirements"
+	},
+	{
+		"route": "install/language"
+	},
+	{
+		"route": "install/language/getLanguages"
+	},
+	{
+		"route": "install/database"
+	},
+	{
+		"route": "install/settings"
+	},
+	{
+		"route": "uploads/{id}",
+		"params": {
+			"id": "[0-9]+"
+		}
+	},
+	{
+		"route": "uploads/{id}/show",
+		"params": {
+			"id": "[0-9]+"
+		}
+	},
+	{
+		"route": "uploads/{id}/download",
+		"params": {
+			"id": "[0-9]+"
+		}
+	},
+	{
+		"route": "/"
+	},
+	{
+		"route": "wizard"
+	},
+	{
+		"route": "portal"
+	},
+	{
+		"route": "auth/login"
+	},
+	{
+		"route": "auth/forgot"
+	},
+	{
+		"route": "auth/reset/{token}",
+		"params": {
+			"token": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "auth/reset"
+	},
+	{
+		"route": "wizard/companies"
+	},
+	{
+		"route": "wizard/currencies"
+	},
+	{
+		"route": "wizard/currencies/create"
+	},
+	{
+		"route": "wizard/currencies/{currency}",
+		"params": {
+			"currency": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "wizard/currencies/{currency}/edit",
+		"params": {
+			"currency": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "wizard/taxes"
+	},
+	{
+		"route": "wizard/taxes/create"
+	},
+	{
+		"route": "wizard/taxes/{tax}",
+		"params": {
+			"tax": "[0-9]+"
+		}
+	},
+	{
+		"route": "wizard/taxes/{tax}/edit",
+		"params": {
+			"tax": "[0-9]+"
+		}
+	},
+	{
+		"route": "wizard/finish"
+	},
+	{
+		"route": "common/companies/autocomplete"
+	},
+	{
+		"route": "common/companies/{company}/switch",
+		"params": {
+			"company": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/companies/{company}/enable",
+		"params": {
+			"company": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/companies/{company}/disable",
+		"params": {
+			"company": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/companies"
+	},
+	{
+		"route": "common/companies/create"
+	},
+	{
+		"route": "common/companies/{company}",
+		"params": {
+			"company": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/companies/{company}/edit",
+		"params": {
+			"company": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/dashboards/{dashboard}/switch",
+		"params": {
+			"dashboard": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/dashboards/{dashboard}/enable",
+		"params": {
+			"dashboard": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/dashboards/{dashboard}/disable",
+		"params": {
+			"dashboard": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/dashboards"
+	},
+	{
+		"route": "common/dashboards/create"
+	},
+	{
+		"route": "common/dashboards/{dashboard}",
+		"params": {
+			"dashboard": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/dashboards/{dashboard}/edit",
+		"params": {
+			"dashboard": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/widgets/getData"
+	},
+	{
+		"route": "common/widgets"
+	},
+	{
+		"route": "common/widgets/create"
+	},
+	{
+		"route": "common/widgets/{widget}",
+		"params": {
+			"widget": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/widgets/{widget}/edit",
+		"params": {
+			"widget": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/import/{group}/{type}/{route}",
+		"params": {
+			"route": "[a-z0-9A-Z_\\-.@%&:;,\\s]+",
+			"group": "[0-9]+",
+			"type": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/items/autocomplete"
+	},
+	{
+		"route": "common/items/total"
+	},
+	{
+		"route": "common/items/{item}/duplicate",
+		"params": {
+			"item": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/items/import"
+	},
+	{
+		"route": "common/items/export"
+	},
+	{
+		"route": "common/items/{item}/enable",
+		"params": {
+			"item": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/items/{item}/disable",
+		"params": {
+			"item": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/items"
+	},
+	{
+		"route": "common/items/create"
+	},
+	{
+		"route": "common/items/{item}",
+		"params": {
+			"item": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/items/{item}/edit",
+		"params": {
+			"item": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/search"
+	},
+	{
+		"route": "common/search/create"
+	},
+	{
+		"route": "common/search/{search}",
+		"params": {
+			"search": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/search/{search}/edit",
+		"params": {
+			"search": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/notifications/disable"
+	},
+	{
+		"route": "common/bulk-actions/{group}/{type}",
+		"params": {
+			"group": "[0-9]+",
+			"type": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/reports/{report}/print",
+		"params": {
+			"report": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/reports/{report}/export",
+		"params": {
+			"report": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/reports/{report}/duplicate",
+		"params": {
+			"report": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/reports/clear"
+	},
+	{
+		"route": "common/reports/fields"
+	},
+	{
+		"route": "common/reports"
+	},
+	{
+		"route": "common/reports/create"
+	},
+	{
+		"route": "common/reports/{report}",
+		"params": {
+			"report": "[0-9]+"
+		}
+	},
+	{
+		"route": "common/reports/{report}/edit",
+		"params": {
+			"report": "[0-9]+"
+		}
+	},
+	{
+		"route": "auth/logout"
+	},
+	{
+		"route": "auth/users/autocomplete"
+	},
+	{
+		"route": "auth/users/{user}/read-bills",
+		"params": {
+			"user": "[0-9]+"
+		}
+	},
+	{
+		"route": "auth/users/{user}/read-invoices",
+		"params": {
+			"user": "[0-9]+"
+		}
+	},
+	{
+		"route": "auth/users/{user}/enable",
+		"params": {
+			"user": "[0-9]+"
+		}
+	},
+	{
+		"route": "auth/users/{user}/disable",
+		"params": {
+			"user": "[0-9]+"
+		}
+	},
+	{
+		"route": "auth/users"
+	},
+	{
+		"route": "auth/users/create"
+	},
+	{
+		"route": "auth/users/{user}",
+		"params": {
+			"user": "[0-9]+"
+		}
+	},
+	{
+		"route": "auth/users/{user}/edit",
+		"params": {
+			"user": "[0-9]+"
+		}
+	},
+	{
+		"route": "auth/roles"
+	},
+	{
+		"route": "auth/roles/create"
+	},
+	{
+		"route": "auth/roles/{role}",
+		"params": {
+			"role": "[0-9]+"
+		}
+	},
+	{
+		"route": "auth/roles/{role}/edit",
+		"params": {
+			"role": "[0-9]+"
+		}
+	},
+	{
+		"route": "auth/permissions"
+	},
+	{
+		"route": "auth/permissions/create"
+	},
+	{
+		"route": "auth/permissions/{permission}",
+		"params": {
+			"permission": "[0-9]+"
+		}
+	},
+	{
+		"route": "auth/permissions/{permission}/edit",
+		"params": {
+			"permission": "[0-9]+"
+		}
+	},
+	{
+		"route": "sales/invoices/{invoice}/sent",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "sales/invoices/{invoice}/cancelled",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "sales/invoices/{invoice}/email",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "sales/invoices/{invoice}/paid",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "sales/invoices/{invoice}/print",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "sales/invoices/{invoice}/pdf",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "sales/invoices/{invoice}/duplicate",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "sales/invoices/addItem"
+	},
+	{
+		"route": "sales/invoices/import"
+	},
+	{
+		"route": "sales/invoices/export"
+	},
+	{
+		"route": "sales/invoices"
+	},
+	{
+		"route": "sales/invoices/create"
+	},
+	{
+		"route": "sales/invoices/{invoice}",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "sales/invoices/{invoice}/edit",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "sales/revenues/{revenue}/duplicate",
+		"params": {
+			"revenue": "[0-9]+"
+		}
+	},
+	{
+		"route": "sales/revenues/import"
+	},
+	{
+		"route": "sales/revenues/export"
+	},
+	{
+		"route": "sales/revenues"
+	},
+	{
+		"route": "sales/revenues/create"
+	},
+	{
+		"route": "sales/revenues/{revenue}",
+		"params": {
+			"revenue": "[0-9]+"
+		}
+	},
+	{
+		"route": "sales/revenues/{revenue}/edit",
+		"params": {
+			"revenue": "[0-9]+"
+		}
+	},
+	{
+		"route": "sales/customers/currency"
+	},
+	{
+		"route": "sales/customers/{customer}/duplicate",
+		"params": {
+			"customer": "[0-9]+"
+		}
+	},
+	{
+		"route": "sales/customers/field"
+	},
+	{
+		"route": "sales/customers/import"
+	},
+	{
+		"route": "sales/customers/export"
+	},
+	{
+		"route": "sales/customers/{customer}/enable",
+		"params": {
+			"customer": "[0-9]+"
+		}
+	},
+	{
+		"route": "sales/customers/{customer}/disable",
+		"params": {
+			"customer": "[0-9]+"
+		}
+	},
+	{
+		"route": "sales/customers/{customer}/currency",
+		"params": {
+			"customer": "[0-9]+"
+		}
+	},
+	{
+		"route": "sales/customers"
+	},
+	{
+		"route": "sales/customers/create"
+	},
+	{
+		"route": "sales/customers/{customer}",
+		"params": {
+			"customer": "[0-9]+"
+		}
+	},
+	{
+		"route": "sales/customers/{customer}/edit",
+		"params": {
+			"customer": "[0-9]+"
+		}
+	},
+	{
+		"route": "purchases/bills/{bill}/received",
+		"params": {
+			"bill": "[0-9]+"
+		}
+	},
+	{
+		"route": "purchases/bills/{bill}/cancelled",
+		"params": {
+			"bill": "[0-9]+"
+		}
+	},
+	{
+		"route": "purchases/bills/{bill}/paid",
+		"params": {
+			"bill": "[0-9]+"
+		}
+	},
+	{
+		"route": "purchases/bills/{bill}/print",
+		"params": {
+			"bill": "[0-9]+"
+		}
+	},
+	{
+		"route": "purchases/bills/{bill}/pdf",
+		"params": {
+			"bill": "[0-9]+"
+		}
+	},
+	{
+		"route": "purchases/bills/{bill}/duplicate",
+		"params": {
+			"bill": "[0-9]+"
+		}
+	},
+	{
+		"route": "purchases/bills/addItem"
+	},
+	{
+		"route": "purchases/bills/import"
+	},
+	{
+		"route": "purchases/bills/export"
+	},
+	{
+		"route": "purchases/bills"
+	},
+	{
+		"route": "purchases/bills/create"
+	},
+	{
+		"route": "purchases/bills/{bill}",
+		"params": {
+			"bill": "[0-9]+"
+		}
+	},
+	{
+		"route": "purchases/bills/{bill}/edit",
+		"params": {
+			"bill": "[0-9]+"
+		}
+	},
+	{
+		"route": "purchases/payments/{payment}/duplicate",
+		"params": {
+			"payment": "[0-9]+"
+		}
+	},
+	{
+		"route": "purchases/payments/import"
+	},
+	{
+		"route": "purchases/payments/export"
+	},
+	{
+		"route": "purchases/payments"
+	},
+	{
+		"route": "purchases/payments/create"
+	},
+	{
+		"route": "purchases/payments/{payment}",
+		"params": {
+			"payment": "[0-9]+"
+		}
+	},
+	{
+		"route": "purchases/payments/{payment}/edit",
+		"params": {
+			"payment": "[0-9]+"
+		}
+	},
+	{
+		"route": "purchases/vendors/currency"
+	},
+	{
+		"route": "purchases/vendors/{vendor}/duplicate",
+		"params": {
+			"vendor": "[0-9]+"
+		}
+	},
+	{
+		"route": "purchases/vendors/import"
+	},
+	{
+		"route": "purchases/vendors/export"
+	},
+	{
+		"route": "purchases/vendors/{vendor}/enable",
+		"params": {
+			"vendor": "[0-9]+"
+		}
+	},
+	{
+		"route": "purchases/vendors/{vendor}/currency",
+		"params": {
+			"vendor": "[0-9]+"
+		}
+	},
+	{
+		"route": "purchases/vendors/{vendor}/disable",
+		"params": {
+			"vendor": "[0-9]+"
+		}
+	},
+	{
+		"route": "purchases/vendors"
+	},
+	{
+		"route": "purchases/vendors/create"
+	},
+	{
+		"route": "purchases/vendors/{vendor}",
+		"params": {
+			"vendor": "[0-9]+"
+		}
+	},
+	{
+		"route": "purchases/vendors/{vendor}/edit",
+		"params": {
+			"vendor": "[0-9]+"
+		}
+	},
+	{
+		"route": "banking/accounts/currency"
+	},
+	{
+		"route": "banking/accounts/{account}/enable",
+		"params": {
+			"account": "[0-9]+"
+		}
+	},
+	{
+		"route": "banking/accounts/{account}/disable",
+		"params": {
+			"account": "[0-9]+"
+		}
+	},
+	{
+		"route": "banking/accounts"
+	},
+	{
+		"route": "banking/accounts/create"
+	},
+	{
+		"route": "banking/accounts/{account}",
+		"params": {
+			"account": "[0-9]+"
+		}
+	},
+	{
+		"route": "banking/accounts/{account}/edit",
+		"params": {
+			"account": "[0-9]+"
+		}
+	},
+	{
+		"route": "banking/transactions/import"
+	},
+	{
+		"route": "banking/transactions/export"
+	},
+	{
+		"route": "banking/transactions"
+	},
+	{
+		"route": "banking/transactions/create"
+	},
+	{
+		"route": "banking/transactions/{transaction}",
+		"params": {
+			"transaction": "[0-9]+"
+		}
+	},
+	{
+		"route": "banking/transactions/{transaction}/edit",
+		"params": {
+			"transaction": "[0-9]+"
+		}
+	},
+	{
+		"route": "banking/transfers/import"
+	},
+	{
+		"route": "banking/transfers/export"
+	},
+	{
+		"route": "banking/transfers"
+	},
+	{
+		"route": "banking/transfers/create"
+	},
+	{
+		"route": "banking/transfers/{transfer}",
+		"params": {
+			"transfer": "[0-9]+"
+		}
+	},
+	{
+		"route": "banking/transfers/{transfer}/edit",
+		"params": {
+			"transfer": "[0-9]+"
+		}
+	},
+	{
+		"route": "banking/reconciliations/calculate"
+	},
+	{
+		"route": "banking/reconciliations"
+	},
+	{
+		"route": "banking/reconciliations/create"
+	},
+	{
+		"route": "banking/reconciliations/{reconciliation}",
+		"params": {
+			"reconciliation": "[0-9]+"
+		}
+	},
+	{
+		"route": "banking/reconciliations/{reconciliation}/edit",
+		"params": {
+			"reconciliation": "[0-9]+"
+		}
+	},
+	{
+		"route": "settings/categories/category"
+	},
+	{
+		"route": "settings/categories/{category}/enable",
+		"params": {
+			"category": "[0-9]+"
+		}
+	},
+	{
+		"route": "settings/categories/{category}/disable",
+		"params": {
+			"category": "[0-9]+"
+		}
+	},
+	{
+		"route": "settings/categories"
+	},
+	{
+		"route": "settings/categories/create"
+	},
+	{
+		"route": "settings/categories/{category}",
+		"params": {
+			"category": "[0-9]+"
+		}
+	},
+	{
+		"route": "settings/categories/{category}/edit",
+		"params": {
+			"category": "[0-9]+"
+		}
+	},
+	{
+		"route": "settings/currencies/currency"
+	},
+	{
+		"route": "settings/currencies/config"
+	},
+	{
+		"route": "settings/currencies/{currency}/enable",
+		"params": {
+			"currency": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "settings/currencies/{currency}/disable",
+		"params": {
+			"currency": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "settings/currencies"
+	},
+	{
+		"route": "settings/currencies/create"
+	},
+	{
+		"route": "settings/currencies/{currency}",
+		"params": {
+			"currency": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "settings/currencies/{currency}/edit",
+		"params": {
+			"currency": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "settings/taxes/{tax}/enable",
+		"params": {
+			"tax": "[0-9]+"
+		}
+	},
+	{
+		"route": "settings/taxes/{tax}/disable",
+		"params": {
+			"tax": "[0-9]+"
+		}
+	},
+	{
+		"route": "settings/taxes"
+	},
+	{
+		"route": "settings/taxes/create"
+	},
+	{
+		"route": "settings/taxes/{tax}",
+		"params": {
+			"tax": "[0-9]+"
+		}
+	},
+	{
+		"route": "settings/taxes/{tax}/edit",
+		"params": {
+			"tax": "[0-9]+"
+		}
+	},
+	{
+		"route": "settings/settings"
+	},
+	{
+		"route": "settings/company"
+	},
+	{
+		"route": "settings/localisation"
+	},
+	{
+		"route": "settings/invoice"
+	},
+	{
+		"route": "settings/default"
+	},
+	{
+		"route": "settings/email"
+	},
+	{
+		"route": "settings/schedule"
+	},
+	{
+		"route": "{alias}/settings",
+		"params": {
+			"alias": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "apps/api-key"
+	},
+	{
+		"route": "apps/api-key/create"
+	},
+	{
+		"route": "apps/api-key/{api_key}",
+		"params": {
+			"api_key": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "apps/api-key/{api_key}/edit",
+		"params": {
+			"api_key": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "apps/home"
+	},
+	{
+		"route": "apps/home/create"
+	},
+	{
+		"route": "apps/home/{home}",
+		"params": {
+			"home": "[0-9]+"
+		}
+	},
+	{
+		"route": "apps/home/{home}/edit",
+		"params": {
+			"home": "[0-9]+"
+		}
+	},
+	{
+		"route": "apps/my"
+	},
+	{
+		"route": "apps/my/create"
+	},
+	{
+		"route": "apps/my/{my}",
+		"params": {
+			"my": "[0-9]+"
+		}
+	},
+	{
+		"route": "apps/my/{my}/edit",
+		"params": {
+			"my": "[0-9]+"
+		}
+	},
+	{
+		"route": "apps/categories/{alias}",
+		"params": {
+			"alias": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "apps/vendors/{alias}",
+		"params": {
+			"alias": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "apps/docs/{alias}",
+		"params": {
+			"alias": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "apps/paid"
+	},
+	{
+		"route": "apps/new"
+	},
+	{
+		"route": "apps/free"
+	},
+	{
+		"route": "apps/search"
+	},
+	{
+		"route": "apps/steps"
+	},
+	{
+		"route": "apps/download"
+	},
+	{
+		"route": "apps/unzip"
+	},
+	{
+		"route": "apps/copy"
+	},
+	{
+		"route": "apps/install"
+	},
+	{
+		"route": "apps/{alias}/reviews",
+		"params": {
+			"alias": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "apps/{alias}/uninstall",
+		"params": {
+			"alias": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "apps/{alias}/enable",
+		"params": {
+			"alias": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "apps/{alias}/disable",
+		"params": {
+			"alias": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "apps/{alias}",
+		"params": {
+			"alias": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "install/updates"
+	},
+	{
+		"route": "install/updates/changelog"
+	},
+	{
+		"route": "install/updates/check"
+	},
+	{
+		"route": "install/updates/run/{alias}/{version}",
+		"params": {
+			"alias": "[a-z0-9A-Z_\\-.@%&:;,\\s]+",
+			"version": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "install/updates/steps"
+	},
+	{
+		"route": "install/updates/download"
+	},
+	{
+		"route": "install/updates/unzip"
+	},
+	{
+		"route": "install/updates/copy-files"
+	},
+	{
+		"route": "install/updates/migrate"
+	},
+	{
+		"route": "install/updates/finish"
+	},
+	{
+		"route": "install/updates/redirect"
+	},
+	{
+		"route": "modals/accounts"
+	},
+	{
+		"route": "modals/accounts/create"
+	},
+	{
+		"route": "modals/accounts/{account}",
+		"params": {
+			"account": "[0-9]+"
+		}
+	},
+	{
+		"route": "modals/accounts/{account}/edit",
+		"params": {
+			"account": "[0-9]+"
+		}
+	},
+	{
+		"route": "modals/categories"
+	},
+	{
+		"route": "modals/categories/create"
+	},
+	{
+		"route": "modals/categories/{category}",
+		"params": {
+			"category": "[0-9]+"
+		}
+	},
+	{
+		"route": "modals/categories/{category}/edit",
+		"params": {
+			"category": "[0-9]+"
+		}
+	},
+	{
+		"route": "modals/currencies"
+	},
+	{
+		"route": "modals/currencies/create"
+	},
+	{
+		"route": "modals/currencies/{currency}",
+		"params": {
+			"currency": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "modals/currencies/{currency}/edit",
+		"params": {
+			"currency": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "modals/customers"
+	},
+	{
+		"route": "modals/customers/create"
+	},
+	{
+		"route": "modals/customers/{customer}",
+		"params": {
+			"customer": "[0-9]+"
+		}
+	},
+	{
+		"route": "modals/customers/{customer}/edit",
+		"params": {
+			"customer": "[0-9]+"
+		}
+	},
+	{
+		"route": "modals/companies"
+	},
+	{
+		"route": "modals/companies/create"
+	},
+	{
+		"route": "modals/companies/{company}",
+		"params": {
+			"company": "[0-9]+"
+		}
+	},
+	{
+		"route": "modals/companies/{company}/edit",
+		"params": {
+			"company": "[0-9]+"
+		}
+	},
+	{
+		"route": "modals/vendors"
+	},
+	{
+		"route": "modals/vendors/create"
+	},
+	{
+		"route": "modals/vendors/{vendor}",
+		"params": {
+			"vendor": "[0-9]+"
+		}
+	},
+	{
+		"route": "modals/vendors/{vendor}/edit",
+		"params": {
+			"vendor": "[0-9]+"
+		}
+	},
+	{
+		"route": "modals/items"
+	},
+	{
+		"route": "modals/items/create"
+	},
+	{
+		"route": "modals/items/{item}",
+		"params": {
+			"item": "[0-9]+"
+		}
+	},
+	{
+		"route": "modals/items/{item}/edit",
+		"params": {
+			"item": "[0-9]+"
+		}
+	},
+	{
+		"route": "modals/invoice-templates"
+	},
+	{
+		"route": "modals/documents/item-columns/edit"
+	},
+	{
+		"route": "modals/documents/item-columns"
+	},
+	{
+		"route": "modals/documents/{document}/transactions",
+		"params": {
+			"document": "[0-9]+"
+		}
+	},
+	{
+		"route": "modals/documents/{document}/transactions/create",
+		"params": {
+			"document": "[0-9]+"
+		}
+	},
+	{
+		"route": "modals/documents/{document}/transactions/{transaction}",
+		"params": {
+			"document": "[0-9]+",
+			"transaction": "[0-9]+"
+		}
+	},
+	{
+		"route": "modals/documents/{document}/transactions/{transaction}/edit",
+		"params": {
+			"document": "[0-9]+",
+			"transaction": "[0-9]+"
+		}
+	},
+	{
+		"route": "modals/taxes"
+	},
+	{
+		"route": "modals/taxes/create"
+	},
+	{
+		"route": "modals/taxes/{tax}",
+		"params": {
+			"tax": "[0-9]+"
+		}
+	},
+	{
+		"route": "modals/taxes/{tax}/edit",
+		"params": {
+			"tax": "[0-9]+"
+		}
+	},
+	{
+		"route": "portal/invoices/{invoice}/print",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "portal/invoices/{invoice}/pdf",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "portal/invoices/{invoice}/payment",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "portal/invoices/{invoice}/confirm",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "portal/invoices"
+	},
+	{
+		"route": "portal/invoices/create"
+	},
+	{
+		"route": "portal/invoices/{invoice}",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "portal/invoices/{invoice}/edit",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "portal/payments/currencies"
+	},
+	{
+		"route": "portal/payments"
+	},
+	{
+		"route": "portal/payments/create"
+	},
+	{
+		"route": "portal/payments/{payment}",
+		"params": {
+			"payment": "[0-9]+"
+		}
+	},
+	{
+		"route": "portal/payments/{payment}/edit",
+		"params": {
+			"payment": "[0-9]+"
+		}
+	},
+	{
+		"route": "portal/profile/read-invoices"
+	},
+	{
+		"route": "portal/profile"
+	},
+	{
+		"route": "portal/profile/create"
+	},
+	{
+		"route": "portal/profile/{profile}",
+		"params": {
+			"profile": "[0-9]+"
+		}
+	},
+	{
+		"route": "portal/profile/{profile}/edit",
+		"params": {
+			"profile": "[0-9]+"
+		}
+	},
+	{
+		"route": "portal/logout"
+	},
+	{
+		"route": "signed/invoices/{invoice}",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "signed/invoices/{invoice}/print",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "signed/invoices/{invoice}/pdf",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "signed/invoices/{invoice}/payment",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	},
+	{
+		"route": "signed/invoices/{invoice}/confirm",
+		"params": {
+			"invoice": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	}
+]

@@ -16,7 +16,7 @@ class ToroReactParamBench
      */
     public function benchParam(): void
     {
-        $routes = RouteGenerator::generateToroStaticRoutes(1000);
+        $routes = RouteGenerator::generateToroNonStaticRoutes(1000);
 
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $_SERVER['REQUEST_URI'] = '/param/0/1/';

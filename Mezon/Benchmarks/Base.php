@@ -1,5 +1,5 @@
 <?php
-namespace Mezon\Benchmark;
+namespace Mezon\Benchmarks;
 
 /**
  * Class for organizing benchmarks

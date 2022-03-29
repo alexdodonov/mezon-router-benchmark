@@ -1,26 +1,26 @@
 {
 	"prefer-stable": true,
 	"minimum-stability": "dev",
-    "require": {
-        "mezon/router": "^1.2",
-        "klein/klein": "^2.1",
-        "symfony/routing": "^5.0",
-        "symfony/http-foundation": "^5.0",
-        "illuminate/routing": "^8.0",
-        "nikic/fast-route": "^1.3",
-        "slim/slim": "^4.5",
-        "altorouter/altorouter": "^1.0",
-        "slim/psr7": "^1.1",
-        "league/route": "^4.5",
-        "laminas/laminas-diactoros": "^2.3",
-        "bramus/router": "^1.4",
-        "aura/router": "^3.1",
-        "zendframework/zend-diactoros": "^2.2",
-        "voryx/thruway": "^0.6.0",
-        "mezzio/mezzio-router": "^3.2",
-        "laminas/laminas-router": "^3.3",
-        "phroute/phroute": "^2.1",
-        "corneltek/pux": "^1.6",
+	"require": {
+		"mezon/router": "^1.2",
+		"klein/klein": "^2.1",
+		"symfony/routing": "^5.0",
+		"symfony/http-foundation": "^5.0",
+		"illuminate/routing": "^8.0",
+		"nikic/fast-route": "^1.3",
+		"slim/slim": "^4.5",
+		"altorouter/altorouter": "^1.0",
+		"slim/psr7": "^1.1",
+		"league/route": "^4.5",
+		"laminas/laminas-diactoros": "^2.3",
+		"bramus/router": "^1.4",
+		"aura/router": "^3.1",
+		"zendframework/zend-diactoros": "^2.2",
+		"voryx/thruway": "^0.6.0",
+		"mezzio/mezzio-router": "^3.2",
+		"laminas/laminas-router": "^3.3",
+		"phroute/phroute": "^2.1",
+		"corneltek/pux": "^1.6",
 		"sunrise/http-router": "^2.5",
 		"sunrise/http-server-request": "^1.1",
 		"rareloop/router": "^4.4",
@@ -43,12 +43,12 @@
 		"joomla/router": "^1.2",
 		"zonuexe/simple-routing": "^0.5.3",
 		"leafs/leaf": "^2.5",
-		"noahbuscher/macaw": "dev-master"
-    },
-    "autoload": {
+		"noahbuscher/macaw": "dev-master",
+		"vectorface/snappy-router": "^0.3.0"
+	},
+	"autoload": {
 		"psr-4": {
-			"Mezon\\Benchmark\\": "",
-			"Mezon\\": ""
+			"Mezon\\": "./Mezon"
 		}
 	},
 	"scripts": {
@@ -58,6 +58,11 @@
 			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ReactStatic",
 			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter ReactParam"
 		],
-		"debug": "php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter Macaw"
+		"benchmark2": [
+			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter SingleRequest --config=phpbench2.json",
+			"php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter React --config=phpbench2.json"
+		],
+		"debug": "php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter Snappy",
+		"debug2": "php vendor/phpbench/phpbench/bin/phpbench run --report=aggregate --filter SymfonyUMSingleRequestBench --config=phpbench2.json"
 	}
 }

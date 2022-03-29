@@ -1,0 +1,8 @@
+[
+	{
+		"route": "languages/{locale}/back",
+		"params": {
+			"locale": "[a-z0-9A-Z_\\-.@%&:;,\\s]+"
+		}
+	}
+]

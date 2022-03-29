@@ -15,12 +15,9 @@ use MiladRahimi\PhpRouter\Routing\Repository;
 use MiladRahimi\PhpRouter\Publisher\Publisher;
 use Mcustiel\PowerRoute\Common\Factories\MatcherFactory;
 use Mcustiel\Creature\SingletonLazyCreator;
-use Mcustiel\PowerRoute\Matchers\NotNull;
 use Mcustiel\PowerRoute\Matchers\Equals;
 use Mcustiel\PowerRoute\Common\Factories\InputSourceFactory;
-use Mcustiel\PowerRoute\InputSources\QueryStringParam;
 use Mcustiel\PowerRoute\Common\Factories\ActionFactory;
-use Mcustiel\PowerRoute\Actions\Redirect;
 use Mcustiel\PowerRoute\PowerRoute;
 use Mcustiel\PowerRoute\Common\Conditions\ConditionsMatcherFactory;
 use Mcustiel\PowerRoute\Matchers\RegExp;
@@ -31,6 +28,9 @@ use Joomla\Application\AbstractApplication;
 use Joomla\Controller\ControllerInterface;
 use Joomla\Input\Input;
 use NoahBuscher\Macaw\Macaw;
+use Vectorface\SnappyRouter\Config\Config;
+use Vectorface\SnappyRouter\Handler\ControllerHandler;
+use Vectorface\SnappyRouter\Handler\PatternMatchHandler;
 
 class EmptyPublisher implements Publisher
 {
@@ -1262,5 +1262,75 @@ class RouteGenerator
         for ($i = 0; $i < $amount; $i ++) {
             Macaw::get('/param/' . $i . '/(:num)', $closure);
         }
+    }
+
+    /**
+     * Method generates static routes for the Snappy router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Vectorface\SnappyRouter\SnappyRouter router
+     */
+    public static function generateSnappyStaticRoutes(int $amount): \Vectorface\SnappyRouter\SnappyRouter
+    {
+        $routes = [];
+
+        $closure = function (): string {
+            return 'static';
+        };
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $routes['/static/{id:[0-9]+}'] = [
+                'get' => $closure
+            ];
+        }
+
+        $config = new Config([
+            Config::KEY_HANDLERS => [
+                'PatternHandler' => [
+                    Config::KEY_CLASS => 'Vectorface\\SnappyRouter\\Handler\\PatternMatchHandler',
+                    Config::KEY_OPTIONS => [
+                        PatternMatchHandler::KEY_ROUTES => $routes
+                    ]
+                ]
+            ]
+        ]);
+
+        return new \Vectorface\SnappyRouter\SnappyRouter($config);
+    }
+
+    /**
+     * Method generates non-static routes for the Snappy router
+     *
+     * @param int $amount
+     *            amount of routes to be generated
+     * @return \Vectorface\SnappyRouter\SnappyRouter router
+     */
+    public static function generateSnappyNonStaticRoutes(int $amount): \Vectorface\SnappyRouter\SnappyRouter
+    {
+        $routes = [];
+
+        $closure = function (): string {
+            return 'param';
+        };
+
+        for ($i = 0; $i < $amount; $i ++) {
+            $routes['/param/' . $i . '/{id:[0-9]+}'] = [
+                'get' => $closure
+            ];
+        }
+
+        $config = new Config([
+            Config::KEY_HANDLERS => [
+                'PatternHandler' => [
+                    Config::KEY_CLASS => 'Vectorface\\SnappyRouter\\Handler\\PatternMatchHandler',
+                    Config::KEY_OPTIONS => [
+                        PatternMatchHandler::KEY_ROUTES => $routes
+                    ]
+                ]
+            ]
+        ]);
+
+        return new \Vectorface\SnappyRouter\SnappyRouter($config);
     }
 }

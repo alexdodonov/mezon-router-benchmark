@@ -1,0 +1,21 @@
+{
+	"bootstrap": "vendor/autoload.php",
+	"php_disable_ini": true,
+    "php_config": {
+        "extension": [ "json.so" ],
+        "memory_limit": "512M"
+    },
+    "output_mode": "throughput",
+    "outputs": {
+        "console_example": {
+            "renderer": "console",
+            "table_style": "symfony-style-guide"
+        },
+        "html_example": {
+            "title": "PHPBench Examples",
+            "renderer": "xslt",
+            "file": "example.html"
+        }
+    },
+    "path": "Mezon/Benchmarks2"
+}
