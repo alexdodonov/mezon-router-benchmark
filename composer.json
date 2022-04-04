@@ -23,14 +23,12 @@
 		"corneltek/pux": "^1.6",
 		"sunrise/http-router": "^2.5",
 		"sunrise/http-server-request": "^1.1",
-		"rareloop/router": "^4.4",
 		"nyholm/psr7": "^1.3",
 		"symfony/psr-http-message-bridge": "^2.0",
 		"laminas/laminas-psr7bridge": "^1.3",
-		"phpbench/phpbench": "^0.17",
+		"phpbench/phpbench": "^1.2",
 		"hoa/router": "~3.0",
 		"hoa/dispatcher": "^1.17",
-		"dannyvankooten/php-router": "9999999-dev",
 		"pecee/simple-router": "^4.3",
 		"coffeecode/router": "^1.0",
 		"steampixel/simple-php-router": "^0.7.0",
@@ -40,11 +38,11 @@
 		"torophp/torophp": "9999999-dev",
 		"zaphpa/zaphpa": "^2.1",
 		"spryker/router": "^1.13",
-		"joomla/router": "^1.2",
 		"zonuexe/simple-routing": "^0.5.3",
 		"leafs/leaf": "^2.5",
 		"noahbuscher/macaw": "dev-master",
-		"vectorface/snappy-router": "^0.3.0"
+		"vectorface/snappy-router": "^0.3.0",
+		"php": ">=8.0.0"
 	},
 	"autoload": {
 		"psr-4": {

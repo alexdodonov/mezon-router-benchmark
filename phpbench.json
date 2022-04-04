@@ -1,12 +1,12 @@
 {
-	"bootstrap": "vendor/autoload.php",
-	"php_disable_ini": true,
-    "php_config": {
-        "extension": [ "json.so" ],
+	"runner.bootstrap": "vendor/autoload.php",
+	"runner.php_disable_ini": true,
+    "runner.php_config": {
         "memory_limit": "512M"
     },
-    "output_mode": "throughput",
-    "outputs": {
+    "runner.path": "Mezon/Benchmarks",
+    "runner.output_mode": "throughput",
+    "report.outputs": {
         "console_example": {
             "renderer": "console",
             "table_style": "symfony-style-guide"
@@ -16,6 +16,5 @@
             "renderer": "xslt",
             "file": "example.html"
         }
-    },
-    "path": "Benchmarks"
+    }
 }
